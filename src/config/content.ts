@@ -3,10 +3,10 @@ import { siteConfig } from "./site";
 
 import mark from "../assets/images/mark.svg";
 import noren from "../assets/images/IMG_1475.JPG";
-import menuUnagi from "../assets/images/IMG_1479.JPG";
-import menuSoba from "../assets/images/IMG_1478.JPG";
-import menuCourse from "../assets/images/IMG_1480.JPG";
-import menuTakeout from "../assets/images/IMG_1481.JPG";
+import menuUnagi from "../assets/images/IMG_1479_upscayl_4x_upscayl-standard-4x.png";
+import menuSoba from "../assets/images/IMG_1478_upscayl_4x_upscayl-standard-4x.png";
+import menuCourse from "../assets/images/IMG_1480_upscayl_4x_upscayl-standard-4x.png";
+import menuTakeout from "../assets/images/IMG_1481_upscayl_4x_upscayl-standard-4x.png";
 import interiorTatamiA from "../assets/images/IMG_1472.JPG";
 import interiorTatamiB from "../assets/images/IMG_1473.JPG";
 import interiorCounter from "../assets/images/IMG_1474.JPG";
