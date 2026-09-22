@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import { content } from "../../config/content";
+import { siteConfig } from "../../config/site";
+
+const { logo } = content.header;
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <a class="footer__brand" href={logo.href}>
+      <Image class="footer__mark" src={logo.src} alt="" widths={[96, 140]} sizes="56px" />
+      <span>{siteConfig.name}</span>
+    </a>
+    <address class="footer__meta">
+      <p>{siteConfig.shop.address}</p>
+      <p>{siteConfig.shop.access}</p>
+      <p>
+        ランチ {siteConfig.shop.hoursLunch}<br />
+        ディナー {siteConfig.shop.hoursDinner}
+      </p>
+    </address>
+  </div>
+  <small class="footer__copy">&copy; 2026 {siteConfig.name}</small>
+</footer>
+
+<style lang="scss">
+  @use "../../styles/variables" as *;
+  @use "../../styles/mixins" as *;
+
+  .footer {
+    background: $lacquer;
+    color: $cream;
+    padding: 3.2rem 0 0;
+  }
+
+  .footer__inner {
+    display: grid;
+    gap: 1.4rem;
+    justify-items: center;
+    text-align: center;
+    padding-bottom: 2.4rem;
+  }
+
+  .footer__brand {
+    display: grid;
+    justify-items: center;
+    gap: 0.7rem;
+    font-family: $font-serif;
+    letter-spacing: 0.32em;
+    @include hover-opacity;
+  }
+
+  .footer__mark {
+    width: 56px;
+    height: 56px;
+  }
+
+  .footer__meta {
+    font-size: 0.86rem;
+    line-height: 2;
+    color: rgba(250, 246, 239, 0.78);
+  }
+
+  .footer__copy {
+    display: block;
+    text-align: center;
+    padding: 0.9rem 1rem;
+    border-top: 1px solid rgba(201, 168, 90, 0.2);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: rgba(250, 246, 239, 0.5);
+  }
+</style>

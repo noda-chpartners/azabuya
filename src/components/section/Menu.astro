@@ -1,0 +1,217 @@
+---
+import { Image } from "astro:assets";
+import { content, type MenuGroup } from "../../config/content";
+
+const { en, ja, lead, note } = content.menu;
+const groups: MenuGroup[] = content.menu.groups;
+---
+
+<section class="menu" id="menu">
+  <div class="menu__head">
+    <div class="section__head reveal">
+      <p class="section__en">{en}</p>
+      <h2 class="section__ja">{ja}</h2>
+      <div class="section__rule"></div>
+      <p class="menu__lead">{lead}</p>
+      <p class="menu__note">{note}</p>
+    </div>
+  </div>
+
+  {groups.map((group) => (
+    <article class="catalog" id={group.id}>
+      <div class="catalog__label">
+        <p class="catalog__en">{group.titleEn}</p>
+        <h3 class="catalog__title">{group.title}</h3>
+      </div>
+
+      <figure class="catalog__figure">
+        <Image
+          class="catalog__image"
+          src={group.image}
+          alt={group.imageAlt}
+          widths={[720, 1080, 1440, 1800]}
+          sizes="(min-width: 900px) 72vw, 100vw"
+        />
+      </figure>
+
+      <ul class="catalog__list">
+        {group.items.map((item) => (
+          <li class="catalog__item">
+            <div class="catalog__item-main">
+              <h4>{item.name}</h4>
+              {item.description && <p>{item.description}</p>}
+            </div>
+            <div class="catalog__prices">
+              {item.prices.map((price) => (
+                <p>
+                  {price.label && <span>{price.label}</span>}
+                  <strong>{price.value}</strong>
+                  {price.note && <small>{price.note}</small>}
+                </p>
+              ))}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </article>
+  ))}
+</section>
+
+<style lang="scss">
+  @use "../../styles/variables" as *;
+
+  .menu {
+    background: $lacquer;
+    color: $cream;
+  }
+
+  .menu__head {
+    padding: 5.5rem 1.5rem 2.4rem;
+  }
+
+  .menu .section__en {
+    color: $gold-light;
+  }
+
+  .menu .section__rule {
+    background: $gold;
+  }
+
+  .menu__lead,
+  .menu__note {
+    max-width: 36rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .menu__lead {
+    margin-top: 1.2rem;
+    letter-spacing: 0.1em;
+  }
+
+  .menu__note {
+    margin-top: 0.8rem;
+    color: rgba(250, 246, 239, 0.68);
+    font-size: 0.86rem;
+    line-height: 1.9;
+  }
+
+  .catalog {
+    padding: 2.4rem 0 4.5rem;
+    border-top: 1px solid rgba(201, 168, 90, 0.16);
+  }
+
+  .catalog__label {
+    text-align: center;
+    margin-bottom: 1.6rem;
+    padding-inline: 1.4rem;
+  }
+
+  .catalog__en {
+    font-family: $font-en;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: $gold-light;
+    font-size: 0.9rem;
+  }
+
+  .catalog__title {
+    margin-top: 0.35rem;
+    font-family: $font-serif;
+    font-size: $fs-xl;
+    letter-spacing: 0.28em;
+    font-weight: 500;
+  }
+
+  .catalog__figure {
+    max-width: 920px;
+    margin: 0 auto;
+    background: #000;
+  }
+
+  .catalog__image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .catalog__list {
+    max-width: 720px;
+    margin: 1.8rem auto 0;
+    padding-inline: 1.4rem;
+  }
+
+  .catalog__item {
+    display: grid;
+    gap: 0.6rem;
+    padding: 1.05rem 0;
+    border-bottom: 1px solid rgba(250, 246, 239, 0.12);
+  }
+
+  .catalog__item h4 {
+    font-family: $font-serif;
+    letter-spacing: 0.1em;
+    font-size: 1.05rem;
+  }
+
+  .catalog__item p {
+    margin-top: 0.3rem;
+    color: rgba(250, 246, 239, 0.68);
+    font-size: 0.86rem;
+  }
+
+  .catalog__prices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.4rem;
+  }
+
+  .catalog__prices p {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    margin: 0;
+    color: $cream;
+    font-size: 1rem;
+  }
+
+  .catalog__prices span,
+  .catalog__prices small {
+    color: $gold-light;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  .catalog__prices strong {
+    font-family: $font-en;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  @media (min-width: 720px) {
+    .catalog__item {
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 1rem 2rem;
+    }
+
+    .catalog__prices {
+      justify-content: flex-end;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .menu__head {
+      padding-top: 6.5rem;
+    }
+
+    .catalog {
+      padding: 3rem 0 5.5rem;
+    }
+
+    .catalog__figure {
+      max-width: 1040px;
+    }
+  }
+</style>

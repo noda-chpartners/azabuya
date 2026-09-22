@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import { content } from "../../config/content";
+
+const { en, ja, photos } = content.interior;
+---
+
+<section class="section interior" id="interior">
+  <div class="container--wide">
+    <div class="section__head reveal">
+      <p class="section__en">{en}</p>
+      <h2 class="section__ja">{ja}</h2>
+      <div class="section__rule"></div>
+    </div>
+
+    <ul class="interior__grid">
+      {photos.map((photo) => (
+        <li class="reveal">
+          <Image
+            src={photo.src}
+            alt={photo.alt}
+            widths={[480, 800, 1200]}
+            sizes="(min-width: 900px) 33vw, 100vw"
+          />
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../styles/variables" as *;
+  @use "../../styles/mixins" as *;
+
+  .interior {
+    background: $paper;
+  }
+
+  .interior__grid {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .interior__grid img {
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+    background: $paper-deep;
+  }
+
+  @media (min-width: 700px) {
+    .interior__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .interior__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .interior__grid img {
+      height: 18rem;
+    }
+  }
+</style>

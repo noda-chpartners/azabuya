@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="140" viewBox="0 0 240 140" fill="none">
+  <defs>
+    <pattern id="seigaiha" x="0" y="0" width="80" height="40" patternUnits="userSpaceOnUse">
+      <path d="M0 40c13.3-13.3 26.7-13.3 40 0 13.3-13.3 26.7-13.3 40 0" stroke="#c9a85a" stroke-width="1.2" fill="none"/>
+      <path d="M0 40c13.3-8 26.7-8 40 0 13.3-8 26.7-8 40 0" stroke="#c9a85a" stroke-width="1.2" fill="none"/>
+      <path d="M0 40c13.3-3.5 26.7-3.5 40 0 13.3-3.5 26.7-3.5 40 0" stroke="#c9a85a" stroke-width="1.2" fill="none"/>
+      <path d="M-40 40c13.3-13.3 26.7-13.3 40 0" stroke="#c9a85a" stroke-width="1.2" fill="none"/>
+      <path d="M-40 40c13.3-8 26.7-8 40 0" stroke="#c9a85a" stroke-width="1.2" fill="none"/>
+      <path d="M-40 40c13.3-3.5 26.7-3.5 40 0" stroke="#c9a85a" stroke-width="1.2" fill="none"/>
+    </pattern>
+  </defs>
+  <rect width="240" height="140" fill="url(#seigaiha)"/>
+</svg>

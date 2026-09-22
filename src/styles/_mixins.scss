@@ -1,0 +1,48 @@
+@use "variables" as *;
+
+@mixin pc {
+  @media (max-width: $bp-pc) {
+    @content;
+  }
+}
+
+@mixin tb {
+  @media (max-width: $bp-tb) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media (max-width: $bp-sp) {
+    @content;
+  }
+}
+
+@mixin hover-opacity($opacity: 0.72, $speed: 0.3s) {
+  transition: opacity $speed $ease;
+
+  &:hover {
+    opacity: $opacity;
+  }
+}
+
+@mixin hover-underline($color: currentColor, $height: 1px, $speed: 0.35s) {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: $height;
+    background-color: $color;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform $speed $ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}

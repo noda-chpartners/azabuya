@@ -1,0 +1,32 @@
+$bp-pc: 1100px;
+$bp-tb: 768px;
+$bp-sp: 560px;
+
+$header-h: 4.5rem;
+
+$ink: #1b1612;
+$ink-soft: #5a5148;
+$paper: #f3ece1;
+$paper-deep: #e7ddd0;
+$cream: #faf6ef;
+$gold: #b08a3e;
+$gold-light: #c9a85a;
+$vermillion: #8c2618;
+$lacquer: #110d0b;
+$line: rgba(27, 22, 18, 0.14);
+$line-strong: rgba(27, 22, 18, 0.28);
+
+$font-serif: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+$font-sans: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+$font-en: "Cormorant Garamond", "Times New Roman", serif;
+
+$ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+$fs-xs: clamp(0.7rem, 1.4vw, 0.75rem);
+$fs-sm: clamp(0.78rem, 1.6vw, 0.875rem);
+$fs-base: clamp(0.9rem, 1.8vw, 1rem);
+$fs-md: clamp(1rem, 2vw, 1.125rem);
+$fs-lg: clamp(1.15rem, 2.4vw, 1.4rem);
+$fs-xl: clamp(1.4rem, 3vw, 1.85rem);
+$fs-2xl: clamp(1.7rem, 4vw, 2.4rem);
+$fs-3xl: clamp(2rem, 5.2vw, 3.2rem);

@@ -1,0 +1,96 @@
+---
+import { siteConfig } from "../../config/site";
+---
+
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="section__head reveal">
+      <p class="section__en">Reserve</p>
+      <h2 class="section__ja">ご予約</h2>
+      <div class="section__rule"></div>
+    </div>
+
+    <p class="contact__text reveal">
+      お席のご予約、お弁当のご用命はお電話にて。<br />
+      不定休のため、ご来店前のご確認をおすすめします。
+    </p>
+
+    <a class="contact__tel reveal" href={`tel:${siteConfig.shop.tel.link}`}>
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1L6.6 10.8z"/>
+      </svg>
+      <span>{siteConfig.shop.tel.display}</span>
+    </a>
+
+    <a
+      class="contact__sns reveal"
+      href={siteConfig.sns.instagram}
+      target="_blank"
+      rel="noopener noreferrer me"
+      aria-label="麻布家のInstagram"
+    >
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-5 3.2A3.8 3.8 0 1 1 8.2 12 3.8 3.8 0 0 1 12 8.2zm0 2A1.8 1.8 0 1 0 13.8 12 1.8 1.8 0 0 0 12 10.2zM17.2 6.6a.9.9 0 1 1-.9.9.9.9 0 0 1 .9-.9z"/>
+      </svg>
+      <span>Instagram</span>
+    </a>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../styles/variables" as *;
+  @use "../../styles/mixins" as *;
+
+  .contact {
+    background: $lacquer;
+    color: $cream;
+  }
+
+  .contact .section__en {
+    color: $gold-light;
+  }
+
+  .contact .section__rule {
+    background: $gold;
+  }
+
+  .contact__text {
+    text-align: center;
+    color: rgba(250, 246, 239, 0.78);
+    line-height: 2;
+  }
+
+  .contact__tel,
+  .contact__sns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    margin: 2rem auto 0;
+    max-width: 22rem;
+  }
+
+  .contact__tel {
+    padding: 1rem 1.4rem;
+    background: $vermillion;
+    letter-spacing: 0.12em;
+    font-size: 1.15rem;
+    transition: opacity 0.3s $ease;
+  }
+
+  .contact__tel:hover {
+    opacity: 0.86;
+  }
+
+  .contact__sns {
+    padding: 0.85rem 1.2rem;
+    border: 1px solid rgba(201, 168, 90, 0.55);
+    letter-spacing: 0.16em;
+    transition: background 0.3s $ease, color 0.3s $ease;
+  }
+
+  .contact__sns:hover {
+    background: $gold;
+    color: $lacquer;
+  }
+</style>
