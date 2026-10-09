@@ -1,12 +1,16 @@
 import type { ImageMetadata } from "astro";
 import { siteConfig } from "./site";
 
-import mark from "../assets/images/mark.svg";
+import logo from "../assets/images/logo.png";
 import noren from "../assets/images/IMG_1475.JPG";
 import menuUnagi from "../assets/images/IMG_1479_upscayl_4x_upscayl-standard-4x.png";
+import menuUnagiLight from "../assets/images/IMG_1479_upscayl_4x_upscayl-standard-4x02.png";
 import menuSoba from "../assets/images/IMG_1478_upscayl_4x_upscayl-standard-4x.png";
+import menuSobaLight from "../assets/images/IMG_1478_upscayl_4x_upscayl-standard-4x02.png";
 import menuCourse from "../assets/images/IMG_1480_upscayl_4x_upscayl-standard-4x.png";
+import menuCourseLight from "../assets/images/IMG_1480_upscayl_4x_upscayl-standard-4x02.png";
 import menuTakeout from "../assets/images/IMG_1481_upscayl_4x_upscayl-standard-4x.png";
+import menuTakeoutLight from "../assets/images/IMG_1481_upscayl_4x_upscayl-standard-4x02.png";
 import interiorTatamiA from "../assets/images/IMG_1472.JPG";
 import interiorTatamiB from "../assets/images/IMG_1473.JPG";
 import interiorCounter from "../assets/images/IMG_1474.JPG";
@@ -21,6 +25,7 @@ export type MenuGroup = {
   title: string;
   titleEn: string;
   image: ImageMetadata;
+  imageLight: ImageMetadata;
   imageAlt: string;
   items: MenuItem[];
 };
@@ -28,7 +33,7 @@ export type MenuGroup = {
 export const content = {
   header: {
     logo: {
-      src: mark,
+      src: logo,
       alt: siteConfig.name,
       href: "#top",
     },
@@ -57,6 +62,7 @@ export const content = {
         title: "うなぎ",
         titleEn: "Unagi",
         image: menuUnagi,
+        imageLight: menuUnagiLight,
         imageAlt: "地焼きうなぎ重、特上うなぎ重、うなぎ楽焼膳、うなぎ丼",
         items: [
           {
@@ -89,6 +95,7 @@ export const content = {
         title: "蕎麦",
         titleEn: "Soba",
         image: menuSoba,
+        imageLight: menuSobaLight,
         imageAlt: "うなぎ重もり蕎麦、特大海老天ぷらもり蕎麦、つけ鶏蕎麦うなぎ飯、鶏なんばん蕎麦うなぎ飯",
         items: [
           {
@@ -117,6 +124,7 @@ export const content = {
         title: "御膳・会席",
         titleEn: "Course",
         image: menuCourse,
+        imageLight: menuCourseLight,
         imageAlt: "麻布家鰻御膳と麻布家贅沢会席",
         items: [
           {
@@ -137,6 +145,7 @@ export const content = {
         title: "お持ち帰り",
         titleEn: "Takeout",
         image: menuTakeout,
+        imageLight: menuTakeoutLight,
         imageAlt: "うなぎ弁当、蒲焼、白焼き、巻き玉子、地鶏、生そば",
         items: [
           {

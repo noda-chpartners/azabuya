@@ -56,6 +56,44 @@ menuLinks.forEach((link) => {
   });
 });
 
+const toneKey = "azabuya-menu-tone";
+const toneButtons = document.querySelectorAll<HTMLButtonElement>("[data-tone-choice]");
+const toneImages = document.querySelectorAll<HTMLImageElement>("[data-tone-image]");
+
+const isMenuTone = (value: string | null | undefined): value is "dark" | "light" =>
+  value === "dark" || value === "light";
+
+const applyMenuTone = (tone: "dark" | "light", persist = false) => {
+  document.documentElement.dataset.menuTone = tone;
+
+  toneButtons.forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.toneChoice === tone));
+  });
+
+  toneImages.forEach((image) => {
+    const active = image.dataset.toneImage === tone;
+    image.toggleAttribute("aria-hidden", !active);
+  });
+
+  if (persist) {
+    try {
+      localStorage.setItem(toneKey, tone);
+    } catch {
+      /* private mode */
+    }
+  }
+};
+
+toneButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const tone = button.dataset.toneChoice;
+    if (isMenuTone(tone)) applyMenuTone(tone, true);
+  });
+});
+
+const savedTone = document.documentElement.dataset.menuTone;
+if (isMenuTone(savedTone)) applyMenuTone(savedTone);
+
 if (!reduceMotion) {
   gsap.from(".hero__content > *", {
     y: 28,
@@ -84,7 +122,7 @@ if (!reduceMotion) {
     );
   });
 
-  gsap.utils.toArray<HTMLElement>(".catalog__image").forEach((el) => {
+  gsap.utils.toArray<HTMLElement>(".catalog__figure").forEach((el) => {
     gsap.from(el, {
       autoAlpha: 0,
       y: 28,

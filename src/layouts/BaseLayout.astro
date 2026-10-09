@@ -28,6 +28,16 @@ const jsonLd = buildRestaurantJsonLd(canonical, ogImage);
     <meta name="author" content={siteConfig.name} />
     <meta name="format-detection" content="telephone=yes" />
     <meta name="theme-color" content="#110d0b" />
+    <script is:inline>
+      (function () {
+        try {
+          var tone = localStorage.getItem("azabuya-menu-tone");
+          if (tone === "light" || tone === "dark") {
+            document.documentElement.setAttribute("data-menu-tone", tone);
+          }
+        } catch (e) {}
+      })();
+    </script>
     <meta name="geo.region" content="JP-45" />
     <meta name="geo.placename" content="宮崎市神宮" />
     <link rel="canonical" href={canonical} />
